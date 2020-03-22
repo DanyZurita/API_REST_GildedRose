@@ -7,38 +7,24 @@ Tasca 5.2 - Web Ollivander's wands shop -->
 <html lang="es">
 
 <head>
-
-    <title>Ollivander's Shop</title>
+    <title>Ollivander's Shop - Backend</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image" href="img/favicon.ico">
+    <link rel="icon" type="image" href="../img/favicon.ico">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 </head>
 
-<!-- Hyperlinks style-->
-<style>
-    a {
-        color: yellow;
-        text-decoration: none;
-    }
-    
-    a:hover {
-        color: gold;
-        text-decoration: none;
-    }
-</style>
-
-<body style="background-color: #444950;">
+<body style="background-color: #FAFAFA;">
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
             <img src="{{ url_for('static', filename='img/logo.png') }}" style="height: 3vh;"></img>
-            Ollivander's Shop
+            Ollivander's Shop - Backend
         </a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -46,13 +32,13 @@ Tasca 5.2 - Web Ollivander's wands shop -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/backend">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/backend">Backend</a>
+                    <a class="nav-link" href="/index">Frontend</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/update">Actualizar día</a>
+                    <a class="nav-link" href="/insertar">Insertar</a>
                 </li>
             </ul>
 
@@ -61,13 +47,12 @@ Tasca 5.2 - Web Ollivander's wands shop -->
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
             </form>
         </div>
-
     </nav>
-    <!-- FINAL NAVBAR -->
+    <!-- END NAVBAR -->
 
     <!-- TABLA -->
     <div class="container">
-        <table class="table table-dark">
+        <table class="table table-light">
 
             <thead>
                 <tr>
@@ -76,9 +61,9 @@ Tasca 5.2 - Web Ollivander's wands shop -->
                     <th scope="col">Name</th>
                     <th scope="col">Sell In</th>
                     <th scope="col">Quality</th>
+                    <th scope="col">Opciones</th>
                 </tr>
             </thead>
-
 
             <tbody id="itemsTable">
 
@@ -87,8 +72,53 @@ Tasca 5.2 - Web Ollivander's wands shop -->
 
         </table>
     </div>
-
     <!-- FINAL TABLA -->
+
+    <!-- MODALS -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Estas seguro que quieres editar el Item?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    Los Items tienen su Quality y Sell In establecidos, no los modifiques si no es necesario.
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
+                    <a href="/editar"><button type="button" class="btn btn-warning">Editar</button></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Estas seguro que quieres eliminar este item?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Esto hará que el Item sea eliminado de la Base de Datos permanentemente.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-danger">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FINAL MODALS -->
 
     <!-- FOOTER -->
     <footer class="container text-center">

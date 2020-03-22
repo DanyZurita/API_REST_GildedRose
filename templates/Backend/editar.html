@@ -7,52 +7,37 @@ Tasca 5.2 - Web Ollivander's wands shop -->
 <html lang="es">
 
 <head>
-
     <title>Ollivander's Shop</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image" href="img/favicon.ico">
+    <link rel="icon" type="image" href="../img/favicon.ico">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 </head>
 
-<!-- Hyperlinks style-->
-<style>
-    a {
-        color: yellow;
-        text-decoration: none;
-    }
-    
-    a:hover {
-        color: gold;
-        text-decoration: none;
-    }
-</style>
-
-<body style="background-color: #444950;">
+<body style="background-color: #FAFAFA;">
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/backend">
             <img src="{{ url_for('static', filename='img/logo.png') }}" style="height: 3vh;"></img>
-            Ollivander's Shop
+            Ollivander's Shop - Backend
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>    
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/backend">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/backend">Backend</a>
+                    <a class="nav-link" href="/index">Frontend</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/update">Actualizar día</a>
+                    <a class="nav-link" href="/insertar">Insertar</a>
                 </li>
             </ul>
 
@@ -61,48 +46,41 @@ Tasca 5.2 - Web Ollivander's wands shop -->
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
             </form>
         </div>
-
     </nav>
-    <!-- FINAL NAVBAR -->
+    <!-- END NAVBAR -->
 
-    <!-- TABLA -->
+    <!-- FORMULARIO INSERT -->
     <div class="container">
-        <table class="table table-dark">
-
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Sell In</th>
-                    <th scope="col">Quality</th>
-                </tr>
-            </thead>
-
-
-            <tbody id="itemsTable">
-
-
-            </tbody>
-
-        </table>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Name</label>
+                <input type="text" class="form-control" id="ItemName"></input>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Sell In</label>
+                <input type="text" class="form-control" id="ItemSellIn"></input>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Quality</label>
+                <input type="text" class="form-control" id="ItemQuality"></input>
+            </div>
+            <button type="submit" class="btn btn-primary">Insertar</button>
+        </form>
     </div>
-
-    <!-- FINAL TABLA -->
+    <!-- FINAL FORMULARIO INSERT -->
 
     <!-- FOOTER -->
     <footer class="container text-center">
         <p>&copy; 2020 &middot; Daniel Jonathan Zurita Mena, Daniel Arqués Toro&middot;</p>
     </footer>
 
-    <script src="{{ url_for('static', filename='itemsLoad.js') }}"></script>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
