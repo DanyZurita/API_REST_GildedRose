@@ -12,7 +12,7 @@ Tasca 5.2 - Web Ollivander's wands shop -->
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image" href="img/favicon.ico">
+    <link rel="icon" type="image" href="{{ url_for('static', filename='img/favicon.ico') }}">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -51,15 +51,7 @@ Tasca 5.2 - Web Ollivander's wands shop -->
                 <li class="nav-item">
                     <a class="nav-link" href="/backend">Backend</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/update">Actualizar día</a>
-                </li>
             </ul>
-
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-            </form>
         </div>
 
     </nav>
@@ -68,8 +60,9 @@ Tasca 5.2 - Web Ollivander's wands shop -->
 
     <!-- BOTON INVENTARIO -->
     <div class="container text-center">
-    <button type="button" class="btn btn-danger" onclick="inventario()">Ver inventario</button>
-</div>
+    <button type="button" class="btn btn-primary" onclick="inventario()">Ver inventario</button>
+    <button type="button" class="btn btn-info" onclick="update()">Actualizar inventario</button>
+    </div>
     <!-- FINAL BOTON INVENTARIO -->
 
     <!-- TABLA -->
