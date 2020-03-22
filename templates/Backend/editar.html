@@ -11,7 +11,7 @@ Tasca 5.2 - Web Ollivander's wands shop -->
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image" href="../img/favicon.ico">
+    <link rel="icon" type="image" href="{ url_for('static', filename='../img/favicon.ico') }}">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -34,23 +34,19 @@ Tasca 5.2 - Web Ollivander's wands shop -->
                     <a class="nav-link" href="/backend">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/index">Frontend</a>
+                    <a class="nav-link" href="/">Frontend</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/insertar">Insertar</a>
                 </li>
             </ul>
-
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-            </form>
         </div>
     </nav>
     <!-- END NAVBAR -->
 
     <!-- FORMULARIO INSERT -->
     <div class="container">
+        <h2>Edita un objeto</h2>
         <form>
             <div class="form-group">
                 <label for="exampleInputEmail1">Name</label>
@@ -64,7 +60,7 @@ Tasca 5.2 - Web Ollivander's wands shop -->
                 <label for="exampleInputPassword1">Quality</label>
                 <input type="text" class="form-control" id="ItemQuality"></input>
             </div>
-            <button type="submit" class="btn btn-primary">Insertar</button>
+            <button type="submit" class="btn btn-primary">Editar</button>
         </form>
     </div>
     <!-- FINAL FORMULARIO INSERT -->
