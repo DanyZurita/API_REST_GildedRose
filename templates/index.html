@@ -65,14 +65,19 @@ Tasca 5.2 - Web Ollivander's wands shop -->
     </nav>
     <!-- FINAL NAVBAR -->
 
+
+    <!-- BOTON INVENTARIO -->
+    <div class="container text-center">
+    <button type="button" class="btn btn-danger" onclick="inventario()">Ver inventario</button>
+</div>
+    <!-- FINAL BOTON INVENTARIO -->
+
     <!-- TABLA -->
     <div class="container">
         <table class="table table-dark">
 
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Image</th>
                     <th scope="col">Name</th>
                     <th scope="col">Sell In</th>
                     <th scope="col">Quality</th>
@@ -95,7 +100,7 @@ Tasca 5.2 - Web Ollivander's wands shop -->
         <p>&copy; 2020 &middot; José María Samos Diago y Daniel Jonathan Zurita Mena&middot;</p>
     </footer>
 
-    <script src="{{ url_for('static', filename='itemsLoad.js') }}"></script>
+    <script src="{{ url_for('static', filename='own.js') }}"></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
