@@ -29,7 +29,7 @@ db_atlas.init_app(app)
 # API REST
 api = Api(app, catch_all_404s=True)
 
-api.add_resource(Root, '/')
+api.add_resource(Root, '/r')
 api.add_resource(Inventario, '/inventario')
 api.add_resource(UpdateQuality, '/update-quality')
 api.add_resource(Items, '/items/name/<itemName>', '/items')
