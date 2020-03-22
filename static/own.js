@@ -33,6 +33,63 @@ function inventario() {
         });
 }
 
+function inventarioBack() {
+
+    var miHeaders = new Headers();
+
+    var miInit = {
+        method: 'GET',
+        headers: miHeaders,
+        mode: 'cors',
+        // cambiarlo a force-cache => carga del disco
+        cache: 'default'
+    };
+
+
+    fetch('http://127.0.0.1:5000/inventario', miInit)
+        .then((response) => {
+            if (response.ok) {
+                console.log("Response Status:", response.status);
+                console.log("Reponse statuts text:", response.statusText);
+                response.json().then((json) => logItemsBack(json))
+            } else {
+                console.log("Response Status:", response.status);
+                console.log("Reponse statuts text:", response.statusText);
+            }
+        })
+        .catch((error) => {
+            console.log(error.message);
+        });
+}
+//UPDATE
+function update() {
+
+    var miHeaders = new Headers();
+
+    var miInit = {
+        method: 'GET',
+        headers: miHeaders,
+        mode: 'cors',
+        // cambiarlo a force-cache => carga del disco
+        cache: 'default'
+    };
+
+
+    fetch('http://127.0.0.1:5000/update-quality', miInit)
+        .then((response) => {
+            if (response.ok) {
+                console.log("Response Status:", response.status);
+                console.log("Reponse statuts text:", response.statusText);
+                response.json().then((json) => logItems(json))
+            } else {
+                console.log("Response Status:", response.status);
+                console.log("Reponse statuts text:", response.statusText);
+            }
+        })
+        .catch((error) => {
+            console.log(error.message);
+        });
+}
 // intentar cachear con la cabecera mirando network de chrome
 
 function logItems(items) {
@@ -41,7 +98,7 @@ function logItems(items) {
     //variable con el contenido
     let contenido = "";
     //index =  numero del item, item = cada uno de los items
-    $.each(json.items, function(index, item) {
+    $.each(items, function(index, item) {
         contenido += "<tr><th scope='row'>" + item.name + "</th>" +
             "<td>" + item.sell_in + "</td>" +
             "<td>" + item.quality + "</td></tr>"
@@ -49,6 +106,23 @@ function logItems(items) {
     $("#itemsTable").html(contenido);
 }
 
+
+function logItemsBack(items) {
+    //Vaciar la tabla
+    clean();
+    //variable con el contenido
+    let contenido = "";
+    //index =  numero del item, item = cada uno de los items
+    $.each(items, function(index, item) {
+        contenido += "<tr><th scope='row'>" + item.name + "</th>" +
+            "<td>" + item.sell_in + "</td>" +
+            "<td>" + item.quality + "</td>" +
+            "<td><button type='button' class='btn btn-warning' data-toggle='modal' data-target='#editModal'>Editar</button>" +
+            "<button type='button' class='btn btn-danger' data-toggle='modal' data-target='#deleteModal'>Eliminar</button></td>" +
+            "</tr>"
+        });
+    $("#itemsTable").html(contenido);
+}
 // POST
 // curl -d name="Conjured Mana Cake" -d sell_in=5 -d quality=8
 // http://192.168.0.19:5000/items
