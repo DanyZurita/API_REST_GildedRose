@@ -11,7 +11,7 @@ Tasca 5.2 - Web Ollivander's wands shop -->
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image" href="../img/favicon.ico">
+    <link rel="icon" type="image" href="{{ url_for('static', filename='../img/favicon.ico') }}">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -41,23 +41,22 @@ Tasca 5.2 - Web Ollivander's wands shop -->
                     <a class="nav-link" href="/insertar">Insertar</a>
                 </li>
             </ul>
-
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-            </form>
         </div>
     </nav>
     <!-- END NAVBAR -->
 
+    <!-- BOTON INVENTARIO -->
+    <div class="container text-center">
+        <button type="button" class="btn btn-primary" onclick="inventarioBack()">Ver inventario</button>
+    </div>
+    <!-- FINAL BOTON INVENTARIO -->
+    
     <!-- TABLA -->
     <div class="container">
         <table class="table table-light">
 
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Image</th>
                     <th scope="col">Name</th>
                     <th scope="col">Sell In</th>
                     <th scope="col">Quality</th>
@@ -125,7 +124,7 @@ Tasca 5.2 - Web Ollivander's wands shop -->
         <p>&copy; 2020 &middot; José María Samos Diago y Daniel Jonathan Zurita Mena&middot;</p>
     </footer>
 
-    <script src="{{ url_for('static', filename='itemsLoad.js') }}"></script>
+    <script src="{{ url_for('static', filename='own.js') }}"></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
