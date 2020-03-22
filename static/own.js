@@ -1,4 +1,7 @@
-
+function clean() {
+    //Vaciar la tabla
+    $("#itemsTable").html("");
+}
 // GET
 
 function inventario() {
@@ -33,16 +36,17 @@ function inventario() {
 // intentar cachear con la cabecera mirando network de chrome
 
 function logItems(items) {
-    const itemsList = document.querySelector('#itemList');
-    itemList.innerHTML = items.map((item, i) => {
-        return `
-                        <li>
-                            <p id="item${i}"> ${item.name}  
-                                            ${item.sell_in}  
-                                            ${item.quality}</p>
-                        </li>
-                        `;
-    }).join('');
+    //Vaciar la tabla
+    clean();
+    //variable con el contenido
+    let contenido = "";
+    //index =  numero del item, item = cada uno de los items
+    $.each(json.items, function(index, item) {
+        contenido += "<tr><th scope='row'>" + item.name + "</th>" +
+            "<td>" + item.sell_in + "</td>" +
+            "<td>" + item.quality + "</td></tr>"
+        });
+    $("#itemsTable").html(contenido);
 }
 
 // POST
@@ -52,9 +56,6 @@ function logItems(items) {
 //let data = {name: "Conjured Mana Cake",
 //          sell_in: 5,
 //          quality: 8};
-
-let formulario = document.querySelector('.add-item');
-formulario.addEventListener('submit', addItem);
 
 function addItem(e) {
     e.preventDefault();
