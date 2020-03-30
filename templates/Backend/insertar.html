@@ -46,29 +46,72 @@ Tasca 5.2 - Web Ollivander's wands shop -->
     </nav>
     <!-- END NAVBAR -->
 
-    <!-- FORMULARIO INSERT -->
+    <!-- FORMULARIO INSERT/DELETE -->
     <div class="container">
         <h2>Inserta un nuevo objeto</h2>
         <form id="formulario">
             <div class="form-group">
-                <label for="exampleInputEmail1">Name</label>
+                <label for="ItmemsName">Name</label>
                 <input type="text" class="form-control" id="ItemName">
             </div>
 
             <div class="form-group">
-                <label for="exampleInputPassword1">Sell In</label>
+                <label for="ItemsSellIn">Sell In</label>
                 <input type="text" class="form-control" id="ItemSellIn">
             </div>
 
             <div class="form-group">
-                <label for="exampleInputPassword1">Quality</label>
+                <label for="ItemsQuality">Quality</label>
                 <input type="text" class="form-control" id="ItemQuality">
             </div>
 
-            <button type="button" class="btn btn-primary" onclick="addItem()">Insertar</button>
+            <button type="button" class="btn btn-primary"  data-toggle='modal' data-target='#addModal'>Insertar</button>
+            <button type="button" class="btn btn-danger" data-toggle='modal' data-target='#deleteModal'>Eliminar</button>
         </form>
     </div>
-    <!-- FINAL FORMULARIO INSERT -->
+    <!-- FINAL FORMULARIO INSERT/DELETE -->
+
+    <!-- MODALS -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Estas seguro que quieres añadir este nuevo Item?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-warning" onclick="addItem()">Añdir</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Estas seguro que quieres eliminar este item?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Esto hará que el Item sea eliminado de la Base de Datos permanentemente.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteItemPromise()">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FINAL MODALS -->
 
     <!-- FOOTER -->
     <footer class="container text-center">
