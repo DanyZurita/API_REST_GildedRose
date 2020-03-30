@@ -1,3 +1,4 @@
+// Vaciar tabla
 function clean() {
     //Vaciar la tabla
     $("#itemsTable").html("");
@@ -61,7 +62,7 @@ function inventarioBack() {
             console.log(error.message);
         });
 }
-//UPDATE
+// UpdateQuality() sobre los items
 function update() {
 
     var miHeaders = new Headers();
@@ -90,7 +91,8 @@ function update() {
             console.log(error.message);
         });
 }
-// intentar cachear con la cabecera mirando network de chrome
+
+// Crear la tabla y añadirla al Frontend
 
 function logItems(items) {
     //Vaciar la tabla
@@ -106,6 +108,7 @@ function logItems(items) {
     $("#itemsTable").html(contenido);
 }
 
+// Crear la tabla con botones y añadirla al Backend
 
 function logItemsBack(items) {
     //Vaciar la tabla
@@ -131,22 +134,22 @@ function logItemsBack(items) {
 //          sell_in: 5,
 //          quality: 8};
 
-function addItem(e) {
-    e.preventDefault();
-    // elementos del formulario en un array-like object:
-    // form.elements 
-    // pag 396 libro rhino
-    logForm();
+function addItem() {
+
+    // Valores del formulario
+    var itemName = document.getElementById("ItemName").value;
+    var itemSellIn = document.getElementById("ItemSellIn").value; 
+    var itemQuality = document.getElementById("ItemQuality").value;
 
     let data = {
-        name: this.elements.name.value,
+        name: itemName,
         // sellin => bad request, status 400
         // sin valor => mensaje del servidor en consola
         // en XHR and fetch: message: {sell_in: "sellIn required"}
-        sell_in: this.elements.sell_in.value,
-        quality: this.elements.quality.value
+        sell_in: itemSellIn,
+        quality: itemQuality
     };
-
+    
     fetch('http://127.0.0.1:5000/items', {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(data), // data can be `string` or {object}!
@@ -172,21 +175,21 @@ function addItem(e) {
 // curl -d name="Conjured Mana Cake" -d sell_in=5 -d quality=8
 // http://127.0.0.1/items -X DELETE
 
-formulario.delete.addEventListener('click', deleteItemPromise);
-
 function deleteItem() {
     // elementos del formulario en un array-like object:
     // form.elements 
     // pag 396 libro rhino
-    logForm();
+    var itemName = document.getElementById("ItemName").value;
+    var itemSellIn = document.getElementById("ItemSellIn").value; 
+    var itemQuality = document.getElementById("ItemQuality").value;
 
     let data = {
-        name: formulario.elements.name.value,
+        name: itemName,
         // sellin => bad request, status 400
         // sin valor => mensaje del servidor en consola
         // en XHR and fetch: message: {sell_in: "sellIn required"}
-        sell_in: formulario.elements.sell_in.value,
-        quality: formulario.elements.quality.value
+        sell_in: itenSellIn,
+        quality: itenQuality
     };
 
     fetch('http://127.0.0.1:5000/items', {
@@ -216,15 +219,19 @@ function deleteItemPromise() {
     // elementos del formulario en un array-like object:
     // form.elements 
     // pag 396 libro rhino
-    logForm();
+
+    // Valores del formulario
+    var itemName = document.getElementById("ItemName").value;
+    var itemSellIn = document.getElementById("ItemSellIn").value; 
+    var itemQuality = document.getElementById("ItemQuality").value;
 
     let data = {
-        name: formulario.elements.name.value,
+        name: itemName,
         // sellin => bad request, status 400
         // sin valor => mensaje del servidor en consola
         // en XHR and fetch: message: {sell_in: "sellIn required"}
-        sell_in: formulario.elements.sell_in.value,
-        quality: formulario.elements.quality.value
+        sell_in: itemSellIn,
+        quality: itemQuality
     };
 
     const promesa = new Promise((resolve, reject) => {
@@ -252,14 +259,4 @@ function deleteItemPromise() {
         });
 
     console.log("El código sigue sin esperar al setTimeout");
-}
-
-
-function logForm() {
-    // for sobre form.elements no sirve
-    // porque muestra buttons tb
-    let formulario = document.querySelector('.add-item');
-    console.log(formulario.elements.name.value,
-        formulario.elements.sell_in.value,
-        formulario.elements.quality.value);
 }
