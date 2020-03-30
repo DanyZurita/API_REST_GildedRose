@@ -62,7 +62,7 @@ function inventarioBack() {
             console.log(error.message);
         });
 }
-// UpdateQuality() sobre los items
+// UpdateQuality() sobre los items en el Fronend
 function update() {
 
     var miHeaders = new Headers();
@@ -82,6 +82,36 @@ function update() {
                 console.log("Response Status:", response.status);
                 console.log("Reponse statuts text:", response.statusText);
                 response.json().then((json) => logItems(json))
+            } else {
+                console.log("Response Status:", response.status);
+                console.log("Reponse statuts text:", response.statusText);
+            }
+        })
+        .catch((error) => {
+            console.log(error.message);
+        });
+}
+
+// UpdateQuality() sobre los items en el Backend
+function update() {
+
+    var miHeaders = new Headers();
+
+    var miInit = {
+        method: 'GET',
+        headers: miHeaders,
+        mode: 'cors',
+        // cambiarlo a force-cache => carga del disco
+        cache: 'default'
+    };
+
+
+    fetch('http://127.0.0.1:5000/update-quality', miInit)
+        .then((response) => {
+            if (response.ok) {
+                console.log("Response Status:", response.status);
+                console.log("Reponse statuts text:", response.statusText);
+                response.json().then((json) => logItemsBack(json))
             } else {
                 console.log("Response Status:", response.status);
                 console.log("Reponse statuts text:", response.statusText);
