@@ -93,7 +93,7 @@ function update() {
 }
 
 // UpdateQuality() sobre los items en el Backend
-function update() {
+function updateBack() {
 
     var miHeaders = new Headers();
 
